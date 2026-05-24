@@ -2,8 +2,6 @@
 
 Real-time countdown for the Star Citizen Executive Hangar LED cycle in Pyro (PYAM-EXHANG-0-1). Static site — no server, no build step, no dependencies. Every visitor in every timezone sees identical timer state because the math runs from `Date.now()` (UTC ms) against a single anchor timestamp.
 
-Pyrosite is also a portfolio piece for the web design practice **Arosite**.
-
 ---
 
 ## What's in the box
@@ -138,6 +136,6 @@ To reskin for a different game, swap `design-tokens.css` (and re-inline into `cs
 
 ## Credits
 
-Built by **[arosite](https://arosite.dev)** — web design practice.
+Built by **arosite**.
 
 Pyrosite is fan-made and not affiliated with Cloud Imperium Games. Star Citizen, Pyro, and all related marks belong to CIG.
