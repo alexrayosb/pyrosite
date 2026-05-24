@@ -2,3 +2,10 @@
 notes.md
 PROJECT_SPEC.md
 README.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
