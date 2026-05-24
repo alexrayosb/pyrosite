@@ -1,0 +1,234 @@
+/* ============================================================
+   PYROSITE — Design Tokens
+   ------------------------------------------------------------
+   All visual theming in one place. Swap this file to reskin
+   the entire site. Every color, size, and shadow in the UI
+   should reference these variables — no magic values in
+   component styles.
+   
+   Aesthetic: Grounded sci-fi industrial. Spacecraft cockpit
+   instrument panel. Dark, layered, functional. Color
+   communicates state, not decoration.
+   ============================================================ */
+
+:root {
+
+  /* ──────────────────────────────────────────────────────────
+     SURFACES
+     Layered dark backgrounds, darkest (void) to lightest 
+     (elevated). Never pure #000 — always blue-shifted darks 
+     to feel like a display panel, not an empty screen.
+     ────────────────────────────────────────────────────────── */
+  --surface-void:       #060810;   /* deepest bg — page body */
+  --surface-base:       #0b0e16;   /* primary panel bg */
+  --surface-raised:     #111620;   /* card / widget surfaces */
+  --surface-overlay:    #161c2a;   /* popovers, dropdowns, hover states */
+  --surface-elevated:   #1c2433;   /* active/selected surface */
+
+  /* ──────────────────────────────────────────────────────────
+     TEXT
+     Cool-tinted neutrals. Primary is near-white with a faint
+     blue cast. Each step down drops in emphasis.
+     ────────────────────────────────────────────────────────── */
+  --text-primary:       #e8ecf4;   /* headlines, countdown, key data */
+  --text-secondary:     #8892a6;   /* body, descriptions */
+  --text-tertiary:      #4f5a6e;   /* labels, metadata, timestamps */
+  --text-dim:           #2e3546;   /* disabled, placeholder, very low emphasis */
+
+  /* ──────────────────────────────────────────────────────────
+     BORDERS & RULES
+     Translucent white at varying opacities so they adapt 
+     to any surface depth.
+     ────────────────────────────────────────────────────────── */
+  --border-subtle:      rgba(255, 255, 255, 0.04);  /* faintest divider */
+  --border-dim:         rgba(255, 255, 255, 0.07);  /* section separators */
+  --border-default:     rgba(255, 255, 255, 0.10);  /* standard panel borders */
+  --border-bright:      rgba(255, 255, 255, 0.18);  /* emphasized, active edges */
+
+  /* ──────────────────────────────────────────────────────────
+     PHASE COLORS — RED (Charging / Locked)
+     Active red for current-phase indicators.
+     Muted red for timeline segments, inactive references.
+     Glow red for atmospheric light bleed behind elements.
+     ────────────────────────────────────────────────────────── */
+  --phase-red:          #ff2e3a;
+  --phase-red-bright:   #ff5c65;
+  --phase-red-muted:    #991c23;
+  --phase-red-dim:      #4a1015;
+  --phase-red-glow:     rgba(255, 46, 58, 0.15);
+  --phase-red-glow-strong: rgba(255, 46, 58, 0.30);
+
+  /* ──────────────────────────────────────────────────────────
+     PHASE COLORS — GREEN (Active / Go)
+     The "safe to insert compboards" state.
+     ────────────────────────────────────────────────────────── */
+  --phase-green:        #00e878;
+  --phase-green-bright: #33ff9e;
+  --phase-green-muted:  #00853f;
+  --phase-green-dim:    #003d1d;
+  --phase-green-glow:   rgba(0, 232, 120, 0.15);
+  --phase-green-glow-strong: rgba(0, 232, 120, 0.30);
+
+  /* ──────────────────────────────────────────────────────────
+     PHASE COLORS — AMBER (Warning / Transition / Black Phase)
+     Used for the black/reset phase and transition warnings.
+     ────────────────────────────────────────────────────────── */
+  --phase-amber:        #ffaa00;
+  --phase-amber-bright: #ffc44d;
+  --phase-amber-muted:  #996600;
+  --phase-amber-dim:    #4a3300;
+  --phase-amber-glow:   rgba(255, 170, 0, 0.15);
+
+  /* ──────────────────────────────────────────────────────────
+     PHASE COLORS — OFF (LED extinguished)
+     The look of a dead indicator light — barely visible,
+     suggesting a recessed, unpowered element.
+     ────────────────────────────────────────────────────────── */
+  --phase-off:          #1a1e2e;
+  --phase-off-border:   #252a3a;
+
+  /* ──────────────────────────────────────────────────────────
+     ACCENT — CYAN
+     Used for UI chrome: links, info badges, focus rings,
+     non-phase visual interest. The "HUD blue" of the design.
+     ────────────────────────────────────────────────────────── */
+  --accent-cyan:        #00c8ff;
+  --accent-cyan-muted:  #0088aa;
+  --accent-cyan-dim:    #003d4d;
+  --accent-cyan-glow:   rgba(0, 200, 255, 0.12);
+
+  /* ──────────────────────────────────────────────────────────
+     AROSITE BRAND (footer credit only)
+     The orange dot is always this exact hex. Do not adapt
+     it to the sci-fi palette — it's a deliberate brand mark.
+     ────────────────────────────────────────────────────────── */
+  --arosite-orange:     #d26b33;
+
+  /* ──────────────────────────────────────────────────────────
+     TYPOGRAPHY
+     Three font stacks. Load from Google Fonts:
+     - Orbitron (500, 600, 700)
+     - Exo 2 (300, 400, 500, 600)
+     - Share Tech Mono (400)
+     - Source Serif 4 (600) — for arosite footer mark only
+     ────────────────────────────────────────────────────────── */
+  --font-display:       'Orbitron', sans-serif;
+  --font-body:          'Exo 2', sans-serif;
+  --font-mono:          'Share Tech Mono', monospace;
+  --font-brand:         'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+
+  /* Type scale */
+  --text-xs:            11px;
+  --text-sm:            12px;
+  --text-base:          15px;
+  --text-lg:            18px;
+  --text-xl:            22px;
+  --text-2xl:           28px;
+  --text-3xl:           36px;
+  --text-4xl:           48px;
+  --text-5xl:           72px;
+
+  /* Line heights */
+  --leading-tight:      1.1;
+  --leading-snug:       1.3;
+  --leading-normal:     1.5;
+  --leading-relaxed:    1.7;
+
+  /* Letter spacing */
+  --tracking-tight:     -0.02em;
+  --tracking-normal:    0em;
+  --tracking-wide:      0.04em;
+  --tracking-wider:     0.08em;
+  --tracking-widest:    0.12em;
+
+  /* ──────────────────────────────────────────────────────────
+     SPACING
+     4px base unit. Use multiples for all margin/padding.
+     ────────────────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ──────────────────────────────────────────────────────────
+     RADII
+     Mostly sharp. Sci-fi panels don't do bubbly corners.
+     ────────────────────────────────────────────────────────── */
+  --radius-xs:  2px;    /* tight elements, tags */
+  --radius-sm:  4px;    /* buttons, inputs */
+  --radius-md:  6px;    /* cards, panels */
+  --radius-lg:  8px;    /* larger containers */
+  --radius-full: 9999px; /* pills, LED dots */
+
+  /* ──────────────────────────────────────────────────────────
+     SHADOWS & GLOWS
+     Used sparingly. The glow behind phase indicators is the
+     primary shadow in this design — not elevation shadows.
+     ────────────────────────────────────────────────────────── */
+  --shadow-panel:       0 1px 3px rgba(0, 0, 0, 0.3), 
+                        0 0 0 1px var(--border-dim);
+  --shadow-card:        0 4px 16px rgba(0, 0, 0, 0.4),
+                        0 0 0 1px var(--border-default);
+  --shadow-elevated:    0 8px 32px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px var(--border-bright);
+
+  /* Phase glows — applied as box-shadow on indicator elements */
+  --glow-red:           0 0 20px var(--phase-red-glow),
+                        0 0 60px var(--phase-red-glow);
+  --glow-green:         0 0 20px var(--phase-green-glow),
+                        0 0 60px var(--phase-green-glow);
+  --glow-amber:         0 0 20px var(--phase-amber-glow),
+                        0 0 60px var(--phase-amber-glow);
+  --glow-cyan:          0 0 20px var(--accent-cyan-glow),
+                        0 0 60px var(--accent-cyan-glow);
+
+  /* ──────────────────────────────────────────────────────────
+     MOTION
+     Snappy micro-interactions. Slightly longer for reveals.
+     ────────────────────────────────────────────────────────── */
+  --duration-fast:      100ms;
+  --duration-base:      150ms;
+  --duration-slow:      300ms;
+  --duration-reveal:    500ms;
+  --ease-default:       cubic-bezier(0.2, 0, 0, 1);
+  --ease-bounce:        cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ──────────────────────────────────────────────────────────
+     LAYOUT
+     ────────────────────────────────────────────────────────── */
+  --content-max-width:  1100px;
+  --content-padding:    var(--space-4);       /* 16px mobile */
+  --section-gap:        var(--space-16);      /* 64px between sections */
+
+  /* ──────────────────────────────────────────────────────────
+     Z-INDEX SCALE
+     ────────────────────────────────────────────────────────── */
+  --z-base:       1;
+  --z-panel:      10;
+  --z-overlay:    100;
+  --z-atmosphere: -1;    /* grid, scanlines — behind content */
+}
+
+/* ──────────────────────────────────────────────────────────
+   RESPONSIVE OVERRIDES
+   Adjust type scale and spacing for larger viewports.
+   ────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  :root {
+    --content-padding:  var(--space-8);      /* 32px tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --content-padding:  var(--space-12);     /* 48px desktop */
+  }
+}
