@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pyrosite</title>
+  <meta name="description" content="Real-time countdown for the Star Citizen Executive Hangar cycle in Pyro. Track LED phases, green light windows, and plan your contested zone runs. No server — pure deterministic math.">
+  <meta name="theme-color" content="#060810">
+  <meta property="og:title" content="Pyrosite — Executive Hangar Countdown">
+  <meta property="og:description" content="Track the Executive Hangar LED cycle in real time. Know exactly when to insert compboards.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Exo+2:wght@300;400;500;600&family=Share+Tech+Mono&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere__grid"></div>
+    <div class="atmosphere__scanlines"></div>
+    <div class="atmosphere__vignette"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="brand" aria-label="Pyrosite home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" focusable="false">
+            <polygon points="12,2 22,8 22,16 12,22 2,16 2,8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand__name">PYROSITE</span>
+        <span class="brand__divider" aria-hidden="true"></span>
+        <span class="brand__tag">EXEC HANGAR // PYRO</span>
+      </a>
+      <div class="status-indicator" id="status-indicator" aria-live="polite">
+        <span class="status-indicator__dot" aria-hidden="true"></span>
+        <span class="status-indicator__label">LIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-section page-section--timers">
+      <div class="page-section__inner">
+        <div id="timer-stack" class="timer-stack" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="page-section page-section--config" id="config-section">
+      <div class="page-section__inner">
+        <details class="config-panel" id="config-panel">
+          <summary class="config-panel__summary">
+            <span class="config-panel__chevron" aria-hidden="true">▸</span>
+            <span class="config-panel__title">
+              <span class="config-panel__eyebrow">CONFIG / CALIBRATION</span>
+              <span class="config-panel__desc">Override timer values without editing code. Saved locally to this browser.</span>
+            </span>
+          </summary>
+          <div class="config-panel__body" id="config-panel-body"></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="page-section page-section--about" id="about-section">
+      <div class="page-section__inner">
+        <header class="section-header">
+          <span class="section-header__eyebrow">ABOUT</span>
+          <h2 class="section-header__title">How Pyrosite Works</h2>
+        </header>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <h3 class="about-card__title">What this tracks</h3>
+            <p>Pyrosite is a real-time countdown for the Executive Hangar LED cycle inside Star Citizen's Pyro contested zone (PYAM-EXHANG-0-1). It tells you, at a glance, which sub-phase the doors are in, when the next transition will happen, and whether it's safe to insert a compboard.</p>
+          </article>
+
+          <article class="about-card">
+            <h3 class="about-card__title">How it stays in sync</h3>
+            <p>The math runs in your browser, anchored to one fixed timestamp. Because <code>Date.now()</code> is UTC on every device, two players opening this from opposite continents see the exact same countdown.</p>
+          </article>
+
+          <article class="about-card">
+            <h3 class="about-card__title">If the timer feels off</h3>
+            <p>CIG sometimes resets the cycle in a patch or during a server maintenance. Open the config panel above, drag the slider to the current phase you see in-game, hit Apply, the state you set will persist through browser closes and refreshes.</p>
+          </article>
+
+          <article class="about-card">
+            <h3 class="about-card__title">Three phases</h3>
+            <ul class="about-card__list">
+              <li>
+                <span class="about-card__bullet about-card__bullet--red" aria-hidden="true"></span>
+                <span class="about-card__list-text"><strong>Charging.</strong> Red, 120 minutes. Door is locked, don't waste a compboard.</span>
+              </li>
+              <li>
+                <span class="about-card__bullet about-card__bullet--green" aria-hidden="true"></span>
+                <span class="about-card__list-text"><strong>Active.</strong> Green, 60 minutes. Door opens, compboards work.</span>
+              </li>
+              <li>
+                <span class="about-card__bullet about-card__bullet--black" aria-hidden="true"></span>
+                <span class="about-card__list-text"><strong>Reset.</strong> Black, 5 minutes. Death zone, stay clear.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="about-footnote">
+          Pyrosite is fan-made and not affiliated with Cloud Imperium Games. Star Citizen, Pyro, and all related marks belong to CIG.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="https://arosite.dev" class="arosite-credit" rel="noopener">
+        Built by
+        <span class="arosite-wordmark">arosite<span class="arosite-dot"></span></span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/timers.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/config-panel.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
