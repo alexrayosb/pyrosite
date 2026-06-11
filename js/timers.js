@@ -28,13 +28,13 @@ const TIMERS = {
     id: "executive-hangar",
     name: "Executive Hangar",
     description: "PYAM-EXHANG-0-1",
-    patch: "4.8.0-live.11875683",
+    patch: "4.8.1-live.11952564",
 
     // ── EPOCH ──────────────────────────────────────────────
     // UTC timestamp (ms) of a KNOWN phase start observed in-game.
     // The phase that was starting at this moment must match epochPhaseId.
-    epoch: 1779660018079,  // 2026-05-24T22:00:18Z, observed 2nd LED turning green
-    epochPhaseId: "red-3", // Which phase was starting at the epoch moment
+    epoch: 1781161438105,  // 2026-06-11T07:03:58Z, observed 4th LED turning green
+    epochPhaseId: "red-5", // Which phase was starting at the epoch moment
 
     // ── PHASE DEFINITIONS ──────────────────────────────────
     // Ordered list. The engine walks through these sequentially
