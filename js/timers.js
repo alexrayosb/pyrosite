@@ -33,8 +33,8 @@ const TIMERS = {
     // ── EPOCH ──────────────────────────────────────────────
     // UTC timestamp (ms) of a KNOWN phase start observed in-game.
     // The phase that was starting at this moment must match epochPhaseId.
-    epoch: 1781161438105,  // 2026-06-11T07:03:58Z, observed 4th LED turning green
-    epochPhaseId: "red-5", // Which phase was starting at the epoch moment
+    epoch: 1781560090000,  // 2026-06-15T21:48:10Z, observed all 5 LEDs green (hangar became active)
+    epochPhaseId: "green-1", // Which phase was starting at the epoch moment
 
     // ── PHASE DEFINITIONS ──────────────────────────────────
     // Ordered list. The engine walks through these sequentially
