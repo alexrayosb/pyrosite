@@ -33,8 +33,8 @@ const TIMERS = {
     // ── EPOCH ──────────────────────────────────────────────
     // UTC timestamp (ms) of a KNOWN phase start observed in-game.
     // The phase that was starting at this moment must match epochPhaseId.
-    epoch: 1781759638967,  // 2026-06-18T05:13:58Z, observed the very first green light turning (LED 1 of 5)
-    epochPhaseId: "red-2", // Which phase was starting at the epoch moment
+    epoch: 1781845750000,  // 2026-06-19T05:09:10Z, observed the second green light turning (LED 2 of 5)
+    epochPhaseId: "red-3", // Which phase was starting at the epoch moment
 
     // ── PHASE DEFINITIONS ──────────────────────────────────
     // Ordered list. The engine walks through these sequentially
